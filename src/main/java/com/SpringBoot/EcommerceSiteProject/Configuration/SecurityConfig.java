@@ -32,6 +32,8 @@ public class SecurityConfig {
                                     .requestMatchers("/product/**").hasAuthority("SELLER")
                                     .requestMatchers("/address/**").hasAnyAuthority("SELLER","CUSTOMER")
                                     .requestMatchers("/cart/**","/order/**","/payment/**").hasAuthority("CUSTOMER")
+                                    .requestMatchers("/swagger-ui/**").permitAll()
+                                    .requestMatchers("/v3/**").permitAll()
                                     .anyRequest().authenticated()
                 );
 
