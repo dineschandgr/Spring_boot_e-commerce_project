@@ -2,21 +2,18 @@ version: 0.2
 
 phases:
   install:
-    java: corretto21
-    commands:
-      - echo install
-  pre_build:
-    commands:
-      - echo pre_build
+    runtime-versions:
+      java: Corretto21
+    pre_build:
+      commands:
+        - sudo apt-get update; sudo apt-get install -y java-21-amazon-corretto-jdk
   build:
     commands:
-      - mvn package
-      - echo build
+      - mvn clean install
   post_build:
     commands:
-      - echo post_build
-      - mv target/*.jar app.jar
-
+      - echo Build completed
 artifacts:
   files:
-    - app.jar
+    - target/*.jar
+  discard-paths: yes
