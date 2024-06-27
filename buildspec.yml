@@ -3,10 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: Corretto21
-    pre_build:
-      commands:
-        - sudo apt-get update; sudo apt-get install -y java-21-amazon-corretto-jdk
+      java: corretto17
   build:
     commands:
       - mvn clean install
